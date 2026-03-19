@@ -1,20 +1,27 @@
 const form = document.getElementById('searchForm');
+const commonNameInput = document.getElementById('commonName');
+const searchButton = document.getElementById('searchButton');
 const statusError = document.getElementById('statusError');
 const resultsSection = document.getElementById('resultsSection');
 const resultsCount = document.getElementById('resultsCount');
 const tableCaption = document.getElementById('tableCaption');
 const resultsBody = document.getElementById('resultsBody');
 
+commonNameInput.addEventListener('input', () => {
+  clearError();
+});
+
 form.addEventListener('submit', (event) => {
   event.preventDefault();
 
-  const commonName = document.getElementById('commonName').value.trim();
+  const commonName = commonNameInput.value.trim();
 
   clearError();
 
   if (commonName === '') {
     hideResultsSection();
     showError('Please enter a tree name before searching.');
+    commonNameInput.focus();
     return;
   }
 
@@ -28,6 +35,7 @@ form.addEventListener('submit', (event) => {
  * @param {string} commonName - The tree name to search for.
  */
 async function searchTrees(commonName) {
+  setSearchState(true);
   resultsBody.innerHTML = '';
   resultsCount.textContent = 'Searching…';
   tableCaption.textContent = '';
@@ -55,6 +63,8 @@ async function searchTrees(commonName) {
     console.error(error);
     hideResultsSection();
     showError('Could not load data. Please check your connection and try again.');
+  } finally {
+    setSearchState(false);
   }
 }
 
@@ -129,4 +139,14 @@ function showResultsSection() {
  */
 function hideResultsSection() {
   resultsSection.style.display = 'none';
+}
+
+/**
+ * Updates the submit button while a search is running.
+ *
+ * @param {boolean} isSearching - Whether a request is currently in progress.
+ */
+function setSearchState(isSearching) {
+  searchButton.disabled = isSearching;
+  searchButton.textContent = isSearching ? 'Searching...' : 'Search';
 }

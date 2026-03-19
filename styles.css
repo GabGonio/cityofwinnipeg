@@ -69,6 +69,11 @@ form button:hover {
   background-color: #1f4f22;
 }
 
+form button:disabled {
+  background-color: #6f8f71;
+  cursor: not-allowed;
+}
+
 /* Error message */
 .error-message {
   color: red;
