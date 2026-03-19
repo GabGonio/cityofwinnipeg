@@ -20,6 +20,12 @@ form.addEventListener('submit', (event) => {
   searchTrees(commonName);
 });
 
+/**
+ * Fetches the top 100 largest trees from the City of Winnipeg open dataset
+ * whose common name contains the search term, then displays them in the table.
+ *
+ * @param {string} commonName - The tree name to search for.
+ */
 async function searchTrees(commonName) {
   resultsBody.innerHTML = '';
   resultsCount.textContent = 'Searching…';
@@ -51,6 +57,12 @@ async function searchTrees(commonName) {
   }
 }
 
+/**
+ * Renders the fetched tree records into the results table.
+ *
+ * @param {Array} trees - Array of tree objects returned by the API.
+ * @param {string} searchTerm - The search term entered by the user.
+ */
 function displayResults(trees, searchTerm) {
   if (trees.length === 0) {
     resultsCount.textContent = `No trees found matching "${searchTerm}".`;
@@ -86,11 +98,19 @@ function displayResults(trees, searchTerm) {
   });
 }
 
+/**
+ * Displays an error message to the user.
+ *
+ * @param {string} message - The error message to display.
+ */
 function showError(message) {
   statusError.textContent = message;
   statusError.classList.add('error-visible');
 }
 
+/**
+ * Clears any currently visible error message.
+ */
 function clearError() {
   statusError.textContent = '';
   statusError.classList.remove('error-visible');
