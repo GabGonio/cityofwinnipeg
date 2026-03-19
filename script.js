@@ -13,6 +13,7 @@ form.addEventListener('submit', (event) => {
   clearError();
 
   if (commonName === '') {
+    hideResultsSection();
     showError('Please enter a tree name before searching.');
     return;
   }
@@ -30,7 +31,7 @@ async function searchTrees(commonName) {
   resultsBody.innerHTML = '';
   resultsCount.textContent = 'Searching…';
   tableCaption.textContent = '';
-  resultsSection.style.display = 'block';
+  showResultsSection();
 
   const apiUrl =
     'https://data.winnipeg.ca/resource/d3jk-hb6j.json?' +
@@ -52,7 +53,7 @@ async function searchTrees(commonName) {
     displayResults(trees, commonName);
   } catch (error) {
     console.error(error);
-    resultsCount.textContent = '';
+    hideResultsSection();
     showError('Could not load data. Please check your connection and try again.');
   }
 }
@@ -114,4 +115,18 @@ function showError(message) {
 function clearError() {
   statusError.textContent = '';
   statusError.classList.remove('error-visible');
+}
+
+/**
+ * Shows the results section after a search starts or completes.
+ */
+function showResultsSection() {
+  resultsSection.style.display = 'block';
+}
+
+/**
+ * Hides the results section when there is nothing useful to show.
+ */
+function hideResultsSection() {
+  resultsSection.style.display = 'none';
 }
