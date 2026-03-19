@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Winnipeg Tree Inventory Search</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header>
+      <h1>Winnipeg Tree Inventory</h1>
+      <p>Search the City of Winnipeg's open tree dataset.</p>
+    </header>
+
+    <main>
+      <section>
+        <form id="searchForm">
+          <label for="commonName">Common Tree Name</label>
+          <input
+            type="text"
+            id="commonName"
+            name="commonName"
+            placeholder="e.g. Ash, Elm, Oak, Maple"
+            required
+          />
+          <button type="submit">Search</button>
+        </form>
+
+        <span id="statusError" class="error-message" aria-live="polite"></span>
+      </section>
+
+      <section id="resultsSection">
+        <p id="resultsCount"></p>
+
+        <table id="resultsTable">
+          <caption id="tableCaption"></caption>
+          <thead>
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">Common Name</th>
+              <th scope="col">Botanical Name</th>
+              <th scope="col">Diameter at Breast Height (mm)</th>
+              <th scope="col">Neighbourhood</th>
+              <th scope="col">Electoral Ward</th>
+              <th scope="col">Street</th>
+              <th scope="col">Location Class</th>
+              <th scope="col">Park</th>
+            </tr>
+          </thead>
+          <tbody id="resultsBody"></tbody>
+        </table>
+      </section>
+    </main>
+
+    <footer>
+      <p>
+        Data sourced from the
+        <a
+          href="https://data.winnipeg.ca/Parks/Tree-Inventory/hfwk-jp4h"
+          target="_blank"
+          rel="noopener noreferrer"
+          >City of Winnipeg Open Data Portal</a
+        >.
+      </p>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>

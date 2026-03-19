@@ -1,0 +1,141 @@
+/* Base */
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f5f5f5;
+  color: #222;
+}
+
+/* Header */
+header {
+  background-color: #2c6b2f;
+  color: white;
+  padding: 1.5rem 2rem;
+}
+
+header h1 {
+  margin: 0 0 0.25rem 0;
+  font-size: 1.8rem;
+}
+
+header p {
+  margin: 0;
+  font-size: 1rem;
+}
+
+/* Main */
+main {
+  max-width: 1100px;
+  margin: 2rem auto;
+  padding: 0 1.5rem;
+}
+
+/* Form */
+form {
+  background-color: white;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  padding: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+form label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+
+form input[type="text"] {
+  padding: 0.5rem;
+  font-size: 1rem;
+  width: 300px;
+  margin-right: 0.5rem;
+  border: 1px solid #aaa;
+  border-radius: 4px;
+}
+
+form button {
+  padding: 0.5rem 1.2rem;
+  font-size: 1rem;
+  background-color: #2c6b2f;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+form button:hover {
+  background-color: #1f4f22;
+}
+
+/* Error message */
+.error-message {
+  color: red;
+  font-size: 0.9rem;
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+  display: block;
+  visibility: hidden;
+}
+
+.error-visible {
+  visibility: visible;
+}
+
+/* Results */
+#resultsCount {
+  margin-bottom: 0.75rem;
+  font-weight: bold;
+}
+
+#resultsSection {
+  background-color: white;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  padding: 1.5rem;
+}
+
+/* Table */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9rem;
+}
+
+caption {
+  text-align: left;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+  color: #2c6b2f;
+  padding-bottom: 0.5rem;
+}
+
+thead tr {
+  background-color: #2c6b2f;
+  color: white;
+}
+
+th, td {
+  text-align: left;
+  padding: 0.5rem 0.75rem;
+  border-bottom: 1px solid #ddd;
+}
+
+tbody tr:hover {
+  background-color: #f0f7f0;
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  padding: 1.5rem;
+  font-size: 0.85rem;
+  color: #555;
+  border-top: 1px solid #ccc;
+  margin-top: 2rem;
+}
+
+footer a {
+  color: #2c6b2f;
+}
